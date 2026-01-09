@@ -28,10 +28,11 @@
         }
     })
         .catch(() => {
-            errorBox.textContent = 'Помилка зʼєднання з архівом';
+            errorBox.textContent = 'Упирь не пройде';
         });
 
 }
+
 
 
 
