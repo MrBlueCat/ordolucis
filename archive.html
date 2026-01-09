@@ -13,7 +13,7 @@
         }
         else {
             console.log("Check token " + token);
-            fetch(`https://ordolucis.runasp.net/Checker/checkToken?token=${nickname}`, {
+            fetch(`https://ordolucis.runasp.net/Checker/checkToken?token=${token}`, {
     method: 'GET'
 })
         .then(res => {
@@ -89,3 +89,4 @@
 </body>
 
 </html>
+
