@@ -20,14 +20,17 @@
             return res.json();
         })
         .then(data => {
-            if (data.ok) {
-                // 👉 УСПІХ
-                window.location.href = 'archive.html';
-            } else {
-                errorBox.textContent = 'Згинь, нечиста';
-            }
-        })
+        if (data.result === 'loud') {
+            // спеціальна умова для loud
+            errorBox.textContent = 'Shout loud into the cosmos';
+        } else {
+            // інша строка — зберігаємо як токен і йдемо на сторінку
+            localStorage.setItem('auth_token', data.result);
+            window.location.href = 'archive.html';
+        }
+    })
         .catch(() => {
             errorBox.textContent = 'Помилка зʼєднання з архівом';
         });
+
 }
