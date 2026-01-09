@@ -10,11 +10,9 @@
     }
 
     // 🔁 ТУТ буде твій API
-    fetch('/api/check-nickname', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nickname })
-    })
+   fetch(`http://ordolucis.runasp.net/Checker/checkNickname?name=${nickname}`, {
+    method: 'GET'
+})
         .then(res => {
             if (!res.ok) throw new Error();
             return res.json();
@@ -34,3 +32,4 @@
         });
 
 }
+
