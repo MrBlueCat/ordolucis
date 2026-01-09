@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mrbluecat.github.io/ordolucis/sitemap.xml
