@@ -13,17 +13,15 @@
         }
         else {
             console.log("Check token " + token);
-            fetch("/check-token", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ token })  // JSON.stringify закривається тут
-            })
-                .then(res => {
-                    if (!res.ok) {
+            fetch(`https://ordolucis.runasp.net/Checker/checkToken?token=${nickname}`, {
+    method: 'GET'
+})
+        .then(res => {
+            if (!res.ok) {
                         localStorage.removeItem("auth_token");
                         window.location.href = "/";
                     }
-                })
+        })
                 .catch(err => {
                     console.error("Помилка при перевірці токена:", err);
                     localStorage.removeItem("auth_token");
@@ -89,4 +87,5 @@
     </script>
 
 </body>
+
 </html>
