@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordo Lucis Vigilantium</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        const token = localStorage.getItem("auth_token");
+        if (!token) {
+            window.location.href = "/";
+        }
+        else {
+            console.log("Check token " + token);
+            fetch("/check-token", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token })  // JSON.stringify закривається тут
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        localStorage.removeItem("auth_token");
+                        window.location.href = "/";
+                    }
+                })
+                .catch(err => {
+                    console.error("Помилка при перевірці токена:", err);
+                    localStorage.removeItem("auth_token");
+                    window.location.href = "/";
+                });
+        }
+    </script>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <img src="images/header.png" alt="Ordo Lucis Vigilantium">
+
+    </header>
+
+    <!-- CONTENT -->
+    <main>
+        <div class="content">
+
+            <div class="password-overlay">
+                <label for="password">Введіть код, щоб розблокувати елемент архіву</label>
+
+                <div class="password-box">
+                    <input type="password" id="password" placeholder="••••••">
+                    <button class="unlock-btn">Unlock</button>
+                </div>
+            </div>
+
+            <!-- GALLERY -->
+            <section class="gallery">
+
+                <div class="gallery-item">
+                    <img src="images/photo1.jpg" alt="Архів 1791" onclick="openModal(this)">
+                    <span>Архів 1791</span>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo2.jpg" alt="Ложа світла" onclick="openModal(this)">
+                    <span>Ложа світла</span>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/photo3.jpg" alt="Знищений притулок" onclick="openModal(this)">
+                    <span>Знищений притулок</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <img id="modal-img">
+    </div>
+
+    <script>
+        function openModal(img) {
+            document.getElementById('modal').style.display = 'flex';
+            document.getElementById('modal-img').src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

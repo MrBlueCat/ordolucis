@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordo Lucis Vigilantium. A tenebris ad lucem</title>
+
+    <!-- ❗ ФІКСОВАНИЙ LAYOUT -->
+    <meta name="viewport" content="width=1200">
+
+    <!-- SEO для картинки -->
+    <meta name="description" content="Ordo Lucis Vigilantium">
+    <meta property="og:title" content="Ordo Lucis Vigilantium">
+    <meta property="og:description" content="Ordo Lucis Vigilantium. A tenebris ad lucem.">
+    <meta property="og:image" content="https://твій-сайт/images/ordo-lucis-vigilantium-archivum-noctis.png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="gate-page">
+    <h1 class="visually-hidden">
+        Ordo Lucis Vigilantium. A tenebris ad lucem
+    </h1>
+    <main class="gate-container">
+
+        <!-- КАРТИНКА -->
+        <img src="images/OrdoLucisVigilantium.png"
+             alt="Ordo Lucis Vigilantium — Archivum Noctis — A tenebris ad lucem"
+             class="gate-image">
+        <!-- ФОРМА -->
+        <div class="gate-box">
+            <label for="nickname">Введіть свій псевдонім</label>
+
+            <input type="text"
+                   id="nickname"
+                   placeholder="Не все лежить на поверхні"
+                   autocomplete="off">
+
+            <button onclick="enterArchive()">Увійти до архіву</button>
+
+            <div class="gate-error" id="gate-error"></div>
+
+            <p class="image-caption">
+                Ordo Lucis Vigilantium. A tenebris ad lucem. Архів світла.
+            </p>
+        </div>
+
+    </main>
+
+    <script src="gate.js"></script>
+</body>
+</html>
