@@ -18,7 +18,7 @@
             return res.text();
         })
         .then(data => {
-        if (data.result === 'loud') {
+        if (data === 'loud') {
             // спеціальна умова для loud
             errorBox.textContent = 'Shout loud into the cosmos';
             return;
@@ -33,6 +33,7 @@
         });
 
 }
+
 
 
 
