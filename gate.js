@@ -15,7 +15,7 @@
 })
         .then(res => {
             if (!res.ok) throw new Error();
-            return res.json();
+            return res.text();
         })
         .then(data => {
         if (data.result === 'loud') {
@@ -32,5 +32,6 @@
         });
 
 }
+
 
 
