@@ -9,7 +9,7 @@
     <script>
         const token = localStorage.getItem("auth_token");
         if (!token) {
-            window.location.href = "/";
+            window.location.href = "/index.html";
         }
         else {
             console.log("Check token " + token);
@@ -27,7 +27,7 @@
 .catch(err => {
     console.error("Помилка при перевірці токена:", err);
     localStorage.removeItem("auth_token");
-    window.location.href = "/";
+    window.location.href = "/index.html";
 });
         }
     </script>
@@ -91,5 +91,6 @@
 </body>
 
 </html>
+
 
 
