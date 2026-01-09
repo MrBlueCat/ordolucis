@@ -10,7 +10,7 @@
     }
 
     // 🔁 ТУТ буде твій API
-   fetch(`http://ordolucis.runasp.net/Checker/checkNickname?name=${nickname}`, {
+   fetch(`https://ordolucis.runasp.net/Checker/checkNickname?name=${nickname}`, {
     method: 'GET'
 })
         .then(res => {
@@ -32,4 +32,5 @@
         });
 
 }
+
 
