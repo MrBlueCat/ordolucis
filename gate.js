@@ -24,7 +24,7 @@
             return;
         } else {
             // інша строка — зберігаємо як токен і йдемо на сторінку
-            localStorage.setItem('auth_token', data.result);
+            localStorage.setItem('auth_token', data);
             window.location.href = 'archive.html';
         }
     })
@@ -33,6 +33,7 @@
         });
 
 }
+
 
 
 
