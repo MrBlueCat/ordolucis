@@ -21,6 +21,7 @@
         if (data.result === 'loud') {
             // спеціальна умова для loud
             errorBox.textContent = 'Shout loud into the cosmos';
+            return;
         } else {
             // інша строка — зберігаємо як токен і йдемо на сторінку
             localStorage.setItem('auth_token', data.result);
@@ -32,6 +33,7 @@
         });
 
 }
+
 
 
 
