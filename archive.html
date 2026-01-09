@@ -13,20 +13,22 @@
         }
         else {
             console.log("Check token " + token);
-            fetch(`https://ordolucis.runasp.net/Checker/checkToken?token=${token}`, {
+            fetch(`https://ordolucis.runasp.net/Checker/checkToken?token=${encodeURIComponent(token)}`, {
     method: 'GET'
 })
         .then(res => {
-            if (!res.ok) {
-                        localStorage.removeItem("auth_token");
-                        window.location.href = "/";
-                    }
-        })
-                .catch(err => {
-                    console.error("Помилка при перевірці токена:", err);
-                    localStorage.removeItem("auth_token");
-                    window.location.href = "/";
-                });
+    if (!res.ok) {
+        throw new Error("Invalid token");
+    }
+})
+.then(() => {
+    console.log("Token valid");
+})
+.catch(err => {
+    console.error("Помилка при перевірці токена:", err);
+    localStorage.removeItem("auth_token");
+    window.location.href = "/";
+});
         }
     </script>
 
@@ -89,4 +91,5 @@
 </body>
 
 </html>
+
 
